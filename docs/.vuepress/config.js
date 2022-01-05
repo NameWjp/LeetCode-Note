@@ -1,6 +1,6 @@
 module.exports = {
-    base: '/Front-end-interview/',
-    title: '前端面试题',
+    base: '/LeetCode-Note/',
+    title: 'LeetCode 笔记',
     head: [
         ['meta', { name: 'referrer', content: 'no-referrer' }],
     ],
