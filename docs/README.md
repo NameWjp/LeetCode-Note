@@ -1,1 +1,1 @@
-LeetCode 笔记
+LeetCode 笔记，题目和 LeetCode 中的题库编号对应，可以在 LeetCode 上找到对应的题目。

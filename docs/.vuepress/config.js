@@ -8,6 +8,7 @@ module.exports = {
         sidebar: [
             ['/', '简介'],
             ['/数组', '数组'],
+            ['/树', '树'],
         ],
         displayAllHeaders: true,
         smoothScroll: true,
