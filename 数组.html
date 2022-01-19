@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>498.对角线遍历 | LeetCode 笔记</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    
+    <meta name="description" content="">
+    <meta name="referrer" content="no-referrer">
+    
+    <link rel="preload" href="/LeetCode-Note/assets/css/0.styles.a6ee3572.css" as="style"><link rel="preload" href="/LeetCode-Note/assets/js/app.6e92c795.js" as="script"><link rel="preload" href="/LeetCode-Note/assets/js/2.2b7619f5.js" as="script"><link rel="preload" href="/LeetCode-Note/assets/js/7.31c8eef8.js" as="script"><link rel="prefetch" href="/LeetCode-Note/assets/js/10.9a24da3f.js"><link rel="prefetch" href="/LeetCode-Note/assets/js/3.faf8d594.js"><link rel="prefetch" href="/LeetCode-Note/assets/js/4.62602428.js"><link rel="prefetch" href="/LeetCode-Note/assets/js/5.9a4d5265.js"><link rel="prefetch" href="/LeetCode-Note/assets/js/6.a63e64be.js"><link rel="prefetch" href="/LeetCode-Note/assets/js/8.006d0feb.js"><link rel="prefetch" href="/LeetCode-Note/assets/js/9.9532f2f6.js">
+    <link rel="stylesheet" href="/LeetCode-Note/assets/css/0.styles.a6ee3572.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/LeetCode-Note/" class="home-link router-link-active"><!----> <span class="site-name">LeetCode 笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/LeetCode-Note/" aria-current="page" class="sidebar-link">简介</a></li><li><a href="/LeetCode-Note/数组.html" class="active sidebar-link">数组</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/LeetCode-Note/数组.html#_498-对角线遍历" class="sidebar-link">498.对角线遍历</a></li><li class="sidebar-sub-header"><a href="/LeetCode-Note/数组.html#_80-删除有序数组中的重复项" class="sidebar-link">80.删除有序数组中的重复项</a></li><li class="sidebar-sub-header"><a href="/LeetCode-Note/数组.html#_502-ipo" class="sidebar-link">502.IPO</a></li><li class="sidebar-sub-header"><a href="/LeetCode-Note/数组.html#_503-下一个更大元素" class="sidebar-link">503.下一个更大元素</a></li></ul></li><li><a href="/LeetCode-Note/树.html" class="sidebar-link">树</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/LeetCode-Note/树.html#_501-二叉搜索树中的众数" class="sidebar-link">501.二叉搜索树中的众数</a></li><li class="sidebar-sub-header"><a href="/LeetCode-Note/树.html#_508-出现次数最多的子树元素和" class="sidebar-link">508.出现次数最多的子树元素和</a></li></ul></li><li><a href="/LeetCode-Note/链表.html" class="sidebar-link">链表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/LeetCode-Note/链表.html#_21-合并两个有序链表" class="sidebar-link">21.合并两个有序链表</a></li><li class="sidebar-sub-header"><a href="/LeetCode-Note/链表.html#_206-反转链表" class="sidebar-link">206.反转链表</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_498-对角线遍历"><a href="#_498-对角线遍历" class="header-anchor">#</a> 498.对角线遍历</h2> <h3 id="题目"><a href="#题目" class="header-anchor">#</a> 题目</h3> <p>给你一个大小为 m x n 的矩阵 mat ，请以对角线遍历的顺序，用一个数组返回这个矩阵中的所有元素。
+<img src="/LeetCode-Note/assets/img/array-1.fd536639.jpg" alt=""></p> <div class="language- extra-class"><pre class="language-text"><code>输入：mat = [[1,2,3],[4,5,6],[7,8,9]]
+输出：[1,2,4,7,5,3,6,8,9]
+</code></pre></div><p>链接：<a href="https://leetcode-cn.com/problems/diagonal-traverse/" target="_blank" rel="noopener noreferrer">https://leetcode-cn.com/problems/diagonal-traverse/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="答案"><a href="#答案" class="header-anchor">#</a> 答案</h3> <p>该题目需要总结出：遍历的方向由层数（横纵坐标之和）决定的，偶右上奇左下，这个规律。之后通过遍历总的个数，和控制当前行和列的位置来完成数组的构成。其中需要处理一些临界点，例如向右上方遍历的时候会存在 <strong>上面</strong> 和 <strong>右面</strong> 两个临界位置。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number[][]} mat
+ * @return {number[]}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">findDiagonalOrder</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">mat</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mat <span class="token operator">||</span> <span class="token operator">!</span>mat<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> rows <span class="token operator">=</span> mat<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> cols <span class="token operator">=</span> mat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// 遍历的次数等于总个数</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> rows <span class="token operator">*</span> cols<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> mat<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 遍历的方向由层数（横纵坐标之和）决定的，偶右上奇左下</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>r <span class="token operator">+</span> c<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">===</span> cols <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 往下移动，准备向左下遍历</span>
+        r<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 往右移动，准备向左下遍历</span>
+        c<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 右上方移动</span>
+        c<span class="token operator">++</span><span class="token punctuation">;</span>
+        r<span class="token operator">--</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">===</span> rows <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 向右移动，准备向右上方遍历</span>
+        c<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 向下移动，准备向右上方遍历</span>
+        r<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 左下方移动</span>
+        c<span class="token operator">--</span><span class="token punctuation">;</span>
+        r<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_80-删除有序数组中的重复项"><a href="#_80-删除有序数组中的重复项" class="header-anchor">#</a> 80.删除有序数组中的重复项</h2> <h3 id="题目-2"><a href="#题目-2" class="header-anchor">#</a> 题目</h3> <p>给你一个<strong>有序</strong>数组 nums，请你原地删除重复出现的元素，使每个元素最多出现两次，返回删除后数组的新长度。不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p> <div class="language- extra-class"><pre class="language-text"><code>输入：nums = [1,1,1,2,2,3]
+输出：5, nums = [1,1,2,2,3]
+解释：函数应返回新长度 length = 5，并且原数组的前五个元素被修改为 1, 1, 2, 2, 3 不需要考虑数组中超出新长度后面的元素。
+</code></pre></div><p>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/" target="_blank" rel="noopener noreferrer">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="答案-2"><a href="#答案-2" class="header-anchor">#</a> 答案</h3> <p>题目要求每个元素最多出现两次，那么对于前两个数字我们可以直接保留。现在我们考虑第三个数的情况，由于数组是有序的，如果第三个数和第一个数一样，那么第二个数必定也是一样的，这样就会有三个一样的数字，不符合题意了。所以只要我们保证第一个和第三个数不一样，那么即使第一个数和第二个数一样也是符合题意的。接着我们从第三个数字起遍历，每找到一个与 <strong>当前指针前 - 2</strong> 位置不同的值就赋值到当前指针位置，并将指针往前移动一位。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number[]} nums
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">removeDuplicates</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> len <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>num <span class="token keyword">of</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">||</span> nums<span class="token punctuation">[</span>len <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">!==</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      nums<span class="token punctuation">[</span>len<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_502-ipo"><a href="#_502-ipo" class="header-anchor">#</a> 502.IPO</h2> <h3 id="题目-3"><a href="#题目-3" class="header-anchor">#</a> 题目</h3> <p>假设力扣（LeetCode）即将开始 IPO。为了以更高的价格将股票卖给风险投资公司，力扣 希望在 IPO 之前开展一些项目以增加其资本。由于资源有限，它只能在 IPO 之前完成最多 k 个不同的项目。帮助力扣设计完成最多 k 个不同项目后得到最大总资本的方式。</p> <p>给你 n 个项目。对于每个项目 i，它都有一个纯利润 profits[i]，和启动该项目需要的最小资本 capital[i]。</p> <p>最初，你的资本为 w。当你完成一个项目时，你将获得纯利润，且利润将被添加到你的总资本中。</p> <p>总而言之，从给定项目中选择 最多 k 个不同项目的列表，以最大化最终资本 ，并输出最终可获得的最多资本。</p> <p>示例：</p> <div class="language- extra-class"><pre class="language-text"><code>输入：k = 2, w = 0, profits = [1,2,3], capital = [0,1,1]
+输出：4
+解释：
+由于你的初始资本为 0，你仅可以从 0 号项目开始。
+在完成后，你将获得 1 的利润，你的总资本将变为 1。
+此时你可以选择开始 1 号或 2 号项目。
+由于你最多可以选择两个项目，所以你需要完成 2 号项目以获得最大的资本。
+因此，输出最后最大化的资本，为 0 + 1 + 3 = 4。
+</code></pre></div><p>链接：<a href="https://leetcode-cn.com/problems/ipo/" target="_blank" rel="noopener noreferrer">https://leetcode-cn.com/problems/ipo/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="答案-3"><a href="#答案-3" class="header-anchor">#</a> 答案</h3> <p>这里使用 java 代码编写，原因是 js 没有 PriorityQueue 这类数据结构，使用排序的话时间复杂度高，再加上 js 性能本来就不行，在 leetcode 上直接超时了。。</p> <p>分析：由于每完成一个任务都会使得总资金 w 增加或不变。因此对于所选的第 i 个任务而言，应该在所有「未被选择」且启动资金不超过 w 的所有任务里面选利润最大的。因此每次决策前，将启动资金不超过当前总资金的任务加入集合，再在里面取出利润最大的任务，与我们当前的总资金 w 相加，循环求解 k 次即为答案。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findMaximizedCapital</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> profits<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> capital<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> profits<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token comment">// 构建和排序启动资金和利润的二维数组，并排序，时间复杂度为 O(nlogn)</span>
+    <span class="token class-name">List</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span> capital<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> profits<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 构建优先级队列（大根堆），poll 操作的时间复杂度为 O(logn)</span>
+    <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> q <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> b <span class="token operator">-</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 由于之前 list 根据启动资金排序过，这里只需要遍历到不符合为止，不需要每次从头到尾遍历</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k<span class="token operator">--</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> w<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        q<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        i<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+      w <span class="token operator">+=</span> q<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> w<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_503-下一个更大元素"><a href="#_503-下一个更大元素" class="header-anchor">#</a> 503.下一个更大元素</h2> <h3 id="题目-4"><a href="#题目-4" class="header-anchor">#</a> 题目</h3> <p>给定一个循环数组（最后一个元素的下一个元素是数组的第一个元素），输出每个元素的下一个更大元素。数字 x 的下一个更大的元素是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1。<br>
+示例：</p> <div class="language- extra-class"><pre class="language-text"><code>输入: [1,2,1]
+输出: [2,-1,2]
+解释: 第一个 1 的下一个更大的数是 2；
+数字 2 找不到下一个更大的数； 
+第二个 1 的下一个最大的数需要循环搜索，结果也是 2。
+</code></pre></div><p>链接：<a href="https://leetcode-cn.com/problems/next-greater-element-ii/" target="_blank" rel="noopener noreferrer">https://leetcode-cn.com/problems/next-greater-element-ii/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="答案-4"><a href="#答案-4" class="header-anchor">#</a> 答案</h3> <p>刚接触这道题的时候直接使用双 for 循环暴力破解，结果太费时间了。。现在考虑优化的情况，我们注意到，暴力解法中，如果数组的前半部分是单调不增的，那么会有很大的计算资源的浪费。比如说 [6,5,4,3,8]，对于前面的 [6,5,4,3] 等数字都需要向后遍历，当寻找到元素 8 时才找到了比自己大的元素；而如果已知元素 6 向后找到元素 8 才找到了比自己的大的数字，那么对于元素 [5,4,3] 来说，它们都比元素 6 更小，所以比它们更大的元素一定是元素 8，不需要单独遍历对 [5,4,3] 向后遍历一次。</p> <p>根据上面的分析可知，可以遍历一次数组，如果元素是单调递减的（则他们的「下一个更大元素」相同），我们就把这些元素保存，直到找到一个较大的元素；把该较大元素逐一跟保存了的元素比较，如果该元素更大，那么它就是前面元素的「下一个更大元素」，在实现上，我们可以使用「单调栈」来实现。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">nextGreaterElements</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 用一个栈保存值递减的下标（单调递减栈）</span>
+  <span class="token keyword">const</span> stk <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 检查栈顶对应值与当前值</span>
+    <span class="token comment">// 如果大于则不处理，后续执行 push 后保持单调递减的特性</span>
+    <span class="token comment">// 如果小于则需要循环处理单调栈，直到栈顶对应值大于当前值，那么处理前的栈顶到处理后的栈顶的最近最大值即为当前值</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>stk<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>stk<span class="token punctuation">[</span>stk<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>i <span class="token operator">%</span> n<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">[</span>stk<span class="token punctuation">[</span>stk<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i <span class="token operator">%</span> n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      stk<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    stk<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i <span class="token operator">%</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/LeetCode-Note/" class="prev router-link-active">
+        简介
+      </a></span> <span class="next"><a href="/LeetCode-Note/树.html">
+        树
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/LeetCode-Note/assets/js/app.6e92c795.js" defer></script><script src="/LeetCode-Note/assets/js/2.2b7619f5.js" defer></script><script src="/LeetCode-Note/assets/js/7.31c8eef8.js" defer></script>
+  </body>
+</html>
