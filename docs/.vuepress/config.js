@@ -9,6 +9,7 @@ module.exports = {
             ['/', '简介'],
             ['/数组', '数组'],
             ['/树', '树'],
+            ['/链表', '链表'],
         ],
         displayAllHeaders: true,
         smoothScroll: true,
